@@ -20,8 +20,9 @@ import {
 import Axis from "../components/Axis";
 import PointsLocationContext from "../components/PointsLocationProvider";
 import { Vector3 } from "three";
+import LoadingScreen from "../components/LoadingScreen";
 
-const ModelSTL = ({ valgusDegree, flexionDegree }) => {
+const Model = ({ valgusDegree, flexionDegree }) => {
   const femur = useLoader(STLLoader, "./Femur.stl");
   const tibia = useLoader(STLLoader, "./Tibia.stl");
   const texture = useTexture("./texture.jpg");
@@ -636,4 +637,4 @@ const ModelSTL = ({ valgusDegree, flexionDegree }) => {
   );
 };
 
-export default ModelSTL;
+export default Model;

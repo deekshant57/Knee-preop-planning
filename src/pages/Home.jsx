@@ -1,8 +1,9 @@
 import { Stats } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense, useContext, useState } from "react";
-import ModelSTL from "./Model";
+import Model from "./Model";
 import PointsLocationContext from "../components/PointsLocationProvider";
+import LoadingScreen from "../components/LoadingScreen";
 
 const Home = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -62,11 +63,11 @@ const Home = () => {
         <Canvas shadows gl={{ antialias: true }}>
           <ambientLight intensity={0.8}></ambientLight>
           {/* <OrbitControls></OrbitControls> */}
-          <Suspense fallback={null}>
-            <ModelSTL
+          <Suspense fallback={<LoadingScreen></LoadingScreen>}>
+            <Model
               valgusDegree={valgusDegree}
               flexionDegree={flexionDegree}
-            ></ModelSTL>
+            ></Model>
           </Suspense>
           {/* stats can be added to doc.body to take over the render loop */}
           <Stats></Stats>
